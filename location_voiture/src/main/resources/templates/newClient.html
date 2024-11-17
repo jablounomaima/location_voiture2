@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ajout Client</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<div class="container my-5">
+    <h3> Ajout Client</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="all" th:action="@{/save}" th:object="${ClientForm}"
+                      method="post">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Nom</label>
+                            <input type="text" th:field="*{nom}" class="form-control"
+                                   id="name" placeholder="name" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">prenom</label>
+                            <input type="text" th:field="*{prenom}" class="form-control"
+                                   id="prenom" placeholder="prenom" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">email</label>
+                            <input type="email" th:field="*{email}" class="form-control"
+                            id="email" placeholder="email" />
+
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">password</label>
+                            <input type="password" th:field="*{motDePasse}" class="form-control"
+                            id="password" placeholder="password" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">adresse</label>
+                            <input type="text" th:field="*{adresse}" class="form-control">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">telephone</label>
+                            <input type="text" th:field="*{tlf}" class="form-control"></input>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+
+                        <input type="hidden" id="id" th:field="*{id}">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
