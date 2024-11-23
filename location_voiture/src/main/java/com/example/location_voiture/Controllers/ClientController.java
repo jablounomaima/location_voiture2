@@ -29,11 +29,11 @@ public class ClientController {
         return "redirect:/all";
 
 }
-   // @GetMapping("/test")
-    //public String testPage() {
-    //turn "test";
-   //
+@GetMapping("/test")
+    public String testPage() {
+    return "test";
 
+}
 
 @RequestMapping(value = "/all")
 public String listClient(Model model){

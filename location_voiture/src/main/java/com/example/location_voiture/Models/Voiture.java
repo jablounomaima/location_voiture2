@@ -18,8 +18,12 @@ public class Voiture {
     public String marque;
     public String modele;
     public String categorie;
-    public boolean disponible;
-    public double prixPourJour;
+    public boolean disponibilite;
+    private String photo;
+
+   // @Column(name = "prix_pour_jour", nullable = false) // Indique que ce champ ne peut pas être null
+    private float prixPourJour;
+
 
     @ManyToOne
     @JoinColumn(name="gestionnaire_id")

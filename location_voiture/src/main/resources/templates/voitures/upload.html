@@ -1,0 +1,8 @@
+<h2>Images téléchargées</h2>
+<div>
+    <ul>
+        <li th:each="image : ${images}">
+            <img th:src="@{'/uploads/' + ${image}}" alt="Image téléchargée" width="150" height="150"/>
+        </li>
+    </ul>
+</div>
