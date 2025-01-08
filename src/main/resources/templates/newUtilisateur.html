@@ -1,0 +1,14 @@
+<form action="/saveUtilisateur" method="post">
+    <input type="text" name="nom" placeholder="Nom" value="${UtilisateurForm.nom}" required />
+    <input type="text" name="prenom" placeholder="Prénom" value="${UtilisateurForm.prenom}" required />
+    <input type="email" name="email" placeholder="Email" value="${UtilisateurForm.email}" required />
+    <input type="password" name="motDePasse" placeholder="Mot de Passe" value="${UtilisateurForm.motDePasse}" required />
+
+    <select name="role">
+        <option value="ADMIN" ${UtilisateurForm.role != null && UtilisateurForm.role.name() == 'ADMIN' ? 'selected' : ''}>Admin</option>
+        <option value="CLIENT" ${UtilisateurForm.role != null && UtilisateurForm.role.name() == 'CLIENT' ? 'selected' : ''}>Client</option>
+        <option value="GESTIONNAIRE" ${UtilisateurForm.role != null && UtilisateurForm.role.name() == 'GESTIONNAIRE' ? 'selected' : ''}>Gestionnaire</option>
+    </select>
+
+    <button type="submit">Enregistrer</button>
+</form>

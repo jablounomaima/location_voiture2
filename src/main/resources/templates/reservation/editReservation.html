@@ -1,0 +1,8 @@
+<form action="/updateReservation/{id}" method="post">
+    <input type="date" name="datedebut" placeholder="Date de début" value="${reservationForm.datedebut}" required />
+    <input type="date" name="dateFin" placeholder="Date de fin" value="${reservationForm.dateFin}" required />
+    <input type="number" name="montantTotale" placeholder="Montant total" value="${reservationForm.montantTotale}" required />
+    <input type="text" name="status" placeholder="Status" value="${reservationForm.status}" required />
+
+    <button type="submit">Mettre à jour</button>
+</form>

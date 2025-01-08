@@ -1,0 +1,23 @@
+<table>
+    <thead>
+    <tr>
+        <th>Date début</th>
+        <th>Date fin</th>
+        <th>Montant total</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservation : ${listReservations}">
+        <td th:text="${#dates.format(reservation.datedebut, 'yyyy-MM-dd')}"></td>
+        <td th:text="${#dates.format(reservation.dateFin, 'yyyy-MM-dd')}"></td>
+        <td th:text="${reservation.montantTotale}"></td>
+        <td th:text="${reservation.status}"></td>
+        <td>
+            <a th:href="@{/editReservation/{id}(id=${reservation.id})}">Modifier</a>
+            <a th:href="@{/deleteReservation/{id}(id=${reservation.id})}">Supprimer</a>
+        </td>
+    </tr>
+    </tbody>
+</table>

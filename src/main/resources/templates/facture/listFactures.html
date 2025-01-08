@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des factures</title>
+</head>
+<body>
+<h1>Liste des factures</h1>
+
+<table border="2">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Date d'émission</th>
+        <th>Montant Total</th>
+        <th>Réservation</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="facture : ${listFactures}">
+        <td th:text="${facture.id}"></td>
+        <td th:text="${facture.dateEmission}"></td>
+        <td th:text="${facture.montantTotale}"></td>
+        <td th:text="${facture.reservation.id}"></td>
+        <td>
+            <a th:href="@{'/editFacture/' + ${facture.id}}">Modifier</a> |
+            <a th:href="@{'/deleteFacture/' + ${facture.id}}">Supprimer</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/addFacture">Ajouter une nouvelle facture</a>
+</body>
+</html>

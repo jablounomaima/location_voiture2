@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter une image</title>
+    <script>
+        function previewImage(event) {
+            const output = document.getElementById('imagePreview');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = () => URL.revokeObjectURL(output.src); // Libérer la mémoire
+        }
+    </script>
+</head>
+<body>
+<h1>Formulaire pour ajouter une image</h1>
+
+<!-- Formulaire pour ajouter une image -->
+<form th:action="@{/submit}" method="post" enctype="multipart/form-data">
+    <label for="file">Choisir une image :</label>
+    <input type="file" name="file" id="file" accept="image/*" onchange="previewImage(event)" required>
+    <br>
+    <h3>Prévisualisation :</h3>
+    <img id="imagePreview" src="#" alt="Prévisualisation de l'image" style="display:block; max-width: 300px; max-height: 300px;" />
+    <br>
+    <button type="submit">Envoyer</button>
+</form>
+</body>
+</html>

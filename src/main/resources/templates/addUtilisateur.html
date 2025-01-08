@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter un utilisateur</title>
+</head>
+<body>
+<h1>Ajouter un utilisateur</h1>
+
+<!-- Formulaire pour ajouter un utilisateur -->
+<form th:action="@{/saveUtilisateur}" method="post" th:object="${UtilisateurForm}">
+
+    <!-- Champ Nom -->
+    <label for="nom">Nom</label>
+    <input type="text" th:field="*{nom}" id="nom" required/>
+
+    <!-- Champ Prénom -->
+    <label for="prenom">Prénom</label>
+    <input type="text" th:field="*{prenom}" id="prenom" required/>
+
+    <!-- Champ Email -->
+    <label for="email">Email</label>
+    <input type="email" th:field="*{email}" id="email" required/>
+
+    <!-- Champ Role (Enum) -->
+    <label for="role">Role</label>
+    <select th:field="*{role}" id="role" required>
+        <option value="ADMIN">Admin</option>
+        <option value="USER">User</option>
+    </select>
+
+    <!-- Afficher les erreurs de validation -->
+    <div th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" style="color:red;"></div>
+    <div th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}" style="color:red;"></div>
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red;"></div>
+    <div th:if="${#fields.hasErrors('role')}" th:errors="*{role}" style="color:red;"></div>
+
+    <button type="submit">Ajouter</button>
+</form>
+
+<a href="/allUtilisateurs">Retour à la liste</a>
+</body>
+</html>

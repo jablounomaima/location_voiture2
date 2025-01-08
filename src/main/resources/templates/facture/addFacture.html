@@ -1,0 +1,21 @@
+<form th:action="@{/saveFacture}" method="post" th:object="${FactureForm}">
+
+    <!-- Sélectionner la réservation -->
+    <label for="reservation">Sélectionner une réservation</label>
+    <select th:field="*{reservation.id}" id="reservation">
+        <option th:each="reservation : ${reservations}"
+                th:value="${reservation.id}"
+                th:text="'Réservation #' + ${reservation.id}">
+        </option>
+    </select>
+
+    <!-- Date d'émission -->
+    <label for="dateEmission">Date d'émission</label>
+    <input type="date" th:field="*{dateEmission}" id="dateEmission"/>
+
+    <!-- Montant total -->
+    <label for="montantTotale">Montant total</label>
+    <input type="number" th:field="*{montantTotale}" id="montantTotale" step="0.01"/>
+
+    <button type="submit">Enregistrer la facture</button>
+</form>

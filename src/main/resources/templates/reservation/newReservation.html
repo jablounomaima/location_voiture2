@@ -1,0 +1,25 @@
+<form action="/saveReservation" method="post">
+    <label for="datedebut">Date Début :</label>
+    <input type="date" id="datedebut" name="datedebut" value="${reservationForm.datedebut}" required />
+
+    <label for="dateFin">Date Fin :</label>
+    <input type="date" id="dateFin" name="dateFin" value="${reservationForm.dateFin}" required />
+
+    <label for="montantTotale">Montant Total :</label>
+    <input type="number" step="0.01" id="montantTotale" name="montantTotale" value="${reservationForm.montantTotale}" required />
+
+    <label for="status">Statut :</label>
+    <input type="text" id="status" name="status" value="${reservationForm.status}" required />
+
+    <label for="client">Client :</label>
+    <select name="client.id" id="client">
+        <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.nom}"></option>
+    </select>
+
+    <label for="voiture">Voiture :</label>
+    <select name="voiture.id" id="voiture">
+        <option th:each="voiture : ${voitures}" th:value="${voiture.id}" th:text="${voiture.modele}"></option>
+    </select>
+
+    <button type="submit">Enregistrer la réservation</button>
+</form>

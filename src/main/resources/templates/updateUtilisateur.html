@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier un utilisateur</title>
+</head>
+<body>
+<h1>Modifier l'utilisateur</h1>
+
+<!-- Formulaire pour modifier un utilisateur -->
+<form th:action="@{/updateUtilisateur/{id}(id=${UtilisateurForm.id})}" method="post" th:object="${UtilisateurForm}">
+
+    <!-- Champ Nom -->
+    <label for="nom">Nom</label>
+    <input type="text" th:field="*{nom}" id="nom" required/>
+
+    <!-- Champ Prénom -->
+    <label for="prenom">Prénom</label>
+    <input type="text" th:field="*{prenom}" id="prenom" required/>
+
+    <!-- Champ Email -->
+    <label for="email">Email</label>
+    <input type="email" th:field="*{email}" id="email" required/>
+
+    <!-- Champ Role (Enum) -->
+    <label for="role">Role</label>
+    <select th:field="*{role}" id="role">
+        <option value="ADMIN" th:text="#{role.admin}">Admin</option>
+        <option value="USER" th:text="#{role.user}">User</option>
+        <option value="GUEST" th:text="#{role.guest}">gestionnaire</option>
+    </select>
+
+    <!-- Afficher les erreurs de validation -->
+    <div th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" style="color:red;"></div>
+    <div th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}" style="color:red;"></div>
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red;"></div>
+    <div th:if="${#fields.hasErrors('role')}" th:errors="*{role}" style="color:red;"></div>
+
+    <button type="submit">Mettre à jour</button>
+</form>
+
+<a href="/allUtilisateurs">Retour à la liste</a>
+</body>
+</html>
